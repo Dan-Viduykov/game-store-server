@@ -5,4 +5,7 @@ export class AppService {
   getHello(): string {
     return 'Hello World!';
   }
+  getAllGames(): string {
+    return 'Hello World all!';
+  }
 }
