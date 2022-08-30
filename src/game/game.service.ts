@@ -5,7 +5,7 @@ import { CreateGameDto } from './dto/create-game.dto';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { Game, GameDocument } from './schemas/game.schema';
 import { Comment, CommentDocument } from './schemas/comment.schema';
-import { FileService, FileType } from './file/file.service';
+import { FileService, FileType } from '../file/file.service';
 
 @Injectable()
 export class GameService {

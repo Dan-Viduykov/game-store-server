@@ -25,7 +25,7 @@ export class GameController {
       { name: 'video', maxCount: 1 },
     ]),
   )
-  create(@Body() dto: CreateGameDto, @UploadedFiles() files) {
+  create(@UploadedFiles() files, @Body() dto: CreateGameDto) {
     const { picture, video } = files;
     return this.gameService.create(dto, picture[0], video[0]);
   }
