@@ -1,5 +1,5 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 export type GameDocument = Game & Document;
 
@@ -9,7 +9,7 @@ export class Game {
   name: string;
 
   @Prop()
-  studio: number;
+  studio: string;
 
   @Prop()
   publisher: string;
