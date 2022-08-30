@@ -5,16 +5,26 @@ import { CreateGameDto } from './dto/create-game.dto';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { Game, GameDocument } from './schemas/game.schema';
 import { Comment, CommentDocument } from './schemas/comment.schema';
+import { FileService, FileType } from './file/file.service';
 
 @Injectable()
 export class GameService {
   constructor(
     @InjectModel(Game.name) private gameModel: Model<GameDocument>,
     @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
+    private fileService: FileService,
   ) {}
 
-  async create(dto: CreateGameDto): Promise<Game> {
-    const game = await this.gameModel.create({ ...dto });
+  async create(dto: CreateGameDto, picture, video): Promise<Game> {
+    const videoPath = this.fileService.createFile(FileType.VIDEO, video);
+    const picturePath = this.fileService.createFile(FileType.IMAGE, picture);
+
+    const game = await this.gameModel.create({
+      ...dto,
+      picture: picturePath,
+      video: videoPath,
+    });
+
     return game;
   }
 

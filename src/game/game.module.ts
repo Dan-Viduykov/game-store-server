@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Comment, CommentSchema } from './schemas/comment.schema';
 import { Game, GameSchema } from './schemas/game.schema';
 import { GameService } from './game.service';
+import { FileService } from './file/file.service';
 import { GameController } from './game.controller';
 
 @Module({
@@ -11,6 +12,6 @@ import { GameController } from './game.controller';
     MongooseModule.forFeature([{ name: Comment.name, schema: CommentSchema }]),
   ],
   controllers: [GameController],
-  providers: [GameService],
+  providers: [GameService, FileService],
 })
 export class GameModule {}

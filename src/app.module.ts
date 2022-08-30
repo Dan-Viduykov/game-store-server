@@ -1,7 +1,8 @@
-import { BasketModule } from './basket/basket.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GameModule } from './game/game.module';
+import { BasketModule } from './basket/basket.module';
+import { FileModule } from './game/file/file.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { GameModule } from './game/game.module';
     ),
     GameModule,
     BasketModule,
+    FileModule,
   ],
 })
 export class AppModule {}
