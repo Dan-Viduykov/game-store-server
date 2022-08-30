@@ -1,6 +1,6 @@
-import { Basket, BasketSchema } from './basket.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
+import { Basket, BasketSchema } from './basket.schema';
 import { BasketService } from './basket.service';
 import { BasketController } from './basket.controller';
 

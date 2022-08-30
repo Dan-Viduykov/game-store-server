@@ -1,7 +1,7 @@
-import { CreateCommentDto } from './dto/create-comment.dto';
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
 import { GameService } from './game.service';
 
 @Controller('/games')
