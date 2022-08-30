@@ -1,3 +1,4 @@
+import { Game } from './../game/schemas/game.schema';
 import { BasketModule } from './basket.module';
 import { Basket } from './basket.schema';
 import { Injectable } from '@nestjs/common';
@@ -10,7 +11,14 @@ export class BasketService {
     @InjectModel(Basket.name) private basketModel: Model<BasketModule>,
   ) {}
 
-  async getAll() {
-    const games = await this.basketModel.find();
-  }
+  // async getAll(): Promise<Game[]> {
+  //   const games = await this.basketModel.find();
+  //   return games;
+  // }
+
+  // async addGame(game: Game) {
+  //   const games = await this.basketModel.find();
+  //   games.push(game);
+  //   await games.save();
+  // }
 }

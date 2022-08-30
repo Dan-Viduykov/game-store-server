@@ -1,3 +1,4 @@
+import { CreateCommentDto } from './dto/create-comment.dto';
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
@@ -25,5 +26,10 @@ export class GameController {
   @Delete(':id')
   delete(@Param('id') id: ObjectId) {
     return this.gameService.delete(id);
+  }
+
+  @Post('/comment')
+  addComment(@Body() dto: CreateCommentDto) {
+    return this.gameService.addComment(dto);
   }
 }

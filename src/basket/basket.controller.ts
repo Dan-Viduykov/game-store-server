@@ -5,8 +5,8 @@ import { Controller, Get } from '@nestjs/common';
 export class BasketController {
   constructor(private basketService: BasketService) {}
 
-  @Get()
-  getAll() {
-    return this.basketService.getAll();
-  }
+  // @Get()
+  // getAll() {
+  //   return this.basketService.getAll();
+  // }
 }
