@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
 import { GameService } from './game.service';
 
@@ -13,11 +14,13 @@ export class GameController {
 
   @Get()
   getAll() {
-    return 'work';
+    return this.gameService.getAll();
   }
 
-  //   @Get()
-  //   getOne() {}
+  @Get(':id')
+  getOne(@Param('id') id: ObjectId) {
+    return this.gameService.getOne(id);
+  }
 
   //   @Delete()
   //   delete() {}
