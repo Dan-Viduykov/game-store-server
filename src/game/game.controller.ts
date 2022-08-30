@@ -6,6 +6,8 @@ import {
   Get,
   Param,
   Post,
+  Put,
+  Query,
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
@@ -31,8 +33,13 @@ export class GameController {
   }
 
   @Get()
-  getAll() {
-    return this.gameService.getAll();
+  getAll(@Query('count') count: number, @Query('offset') offset: number) {
+    return this.gameService.getAll(count, offset);
+  }
+
+  @Get('/search')
+  search(@Query('query') query: string) {
+    return this.gameService.search(query);
   }
 
   @Get(':id')

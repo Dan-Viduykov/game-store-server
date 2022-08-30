@@ -28,8 +28,15 @@ export class GameService {
     return game;
   }
 
-  async getAll(): Promise<Game[]> {
-    const games = await this.gameModel.find();
+  async getAll(count = 8, offset = 0): Promise<Game[]> {
+    const games = await this.gameModel.find().skip(offset).limit(count);
+    return games;
+  }
+
+  async search(query: string): Promise<Game[]> {
+    const games = await this.gameModel.find({
+      name: { $regex: new RegExp(query, 'i') },
+    });
     return games;
   }
 
