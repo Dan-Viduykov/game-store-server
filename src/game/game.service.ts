@@ -26,5 +26,9 @@ export class GameService {
     const game = await this.gameModel.findById(id);
     return game;
   }
-  //   async delete() {}
+
+  async delete(id: ObjectId): Promise<ObjectId> {
+    const game = await this.gameModel.findByIdAndDelete(id);
+    return game._id;
+  }
 }

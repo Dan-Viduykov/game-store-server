@@ -22,6 +22,8 @@ export class GameController {
     return this.gameService.getOne(id);
   }
 
-  //   @Delete()
-  //   delete() {}
+  @Delete(':id')
+  delete(@Param('id') id: ObjectId) {
+    return this.gameService.delete(id);
+  }
 }
