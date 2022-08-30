@@ -14,6 +14,7 @@ import {
 import { ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
 import { CreateCommentDto } from './dto/create-comment.dto';
+import { UpdateGameDto } from './dto/update-game.dto';
 import { GameService } from './game.service';
 
 @Controller('/games')
@@ -56,4 +57,20 @@ export class GameController {
   addComment(@Body() dto: CreateCommentDto) {
     return this.gameService.addComment(dto);
   }
+
+  // @Put(':id')
+  // @UseInterceptors(
+  //   FileFieldsInterceptor([
+  //     { name: 'picture', maxCount: 1 },
+  //     { name: 'video', maxCount: 1 },
+  //   ]),
+  // )
+  // update(
+  //   @UploadedFiles() files,
+  //   @Body() dto: UpdateGameDto,
+  //   @Param('id') id: ObjectId,
+  // ) {
+  //   const { picture, video } = files;
+  //   return this.gameService.udate(id, dto, picture[0], video[0]);
+  // }
 }

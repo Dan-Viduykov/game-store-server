@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
 import { CreateCommentDto } from './dto/create-comment.dto';
+import { UpdateGameDto } from './dto/update-game.dto';
 import { Game, GameDocument } from './schemas/game.schema';
 import { Comment, CommentDocument } from './schemas/comment.schema';
 import { FileService, FileType } from '../file/file.service';
@@ -57,4 +58,17 @@ export class GameService {
     await game.save();
     return comment;
   }
+
+  // async udate(id: ObjectId, dto: UpdateGameDto, picture, video): Promise<Game> {
+  //   const game = await this.gameModel.findById(id);
+  //   const videoPath = this.fileService.createFile(FileType.VIDEO, video);
+  //   const picturePath = this.fileService.createFile(FileType.IMAGE, picture);
+  //   const updateGame = await this.gameModel.findByIdAndUpdate(id, {
+  //     ...game,
+  //     ...dto,
+  //     video: videoPath,
+  //     picture: picturePath,
+  //   });
+  //   return updateGame;
+  // }
 }
