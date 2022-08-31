@@ -26,7 +26,7 @@ export class GameService {
       video: videoPath,
     });
 
-    return game;
+    return await game.save();
   }
 
   async getAll(count = 8, offset = 0): Promise<Game[]> {
