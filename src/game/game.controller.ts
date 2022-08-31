@@ -6,7 +6,6 @@ import {
   Get,
   Param,
   Post,
-  Put,
   Query,
   UploadedFiles,
   UseInterceptors,
@@ -14,7 +13,6 @@ import {
 import { ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
 import { CreateCommentDto } from './dto/create-comment.dto';
-import { UpdateGameDto } from './dto/update-game.dto';
 import { GameService } from './game.service';
 
 @Controller('/games')
