@@ -1,4 +1,3 @@
-import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import {
   Body,
   Controller,
@@ -8,8 +7,6 @@ import {
   Param,
   Post,
   Query,
-  UploadedFiles,
-  UseInterceptors,
 } from '@nestjs/common';
 import { ObjectId } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
@@ -21,15 +18,8 @@ export class GameController {
   constructor(private gameService: GameService) {}
 
   @Post()
-  @UseInterceptors(
-    FileFieldsInterceptor([
-      { name: 'picture', maxCount: 1 },
-      { name: 'video', maxCount: 1 },
-    ]),
-  )
-  create(@UploadedFiles() files, @Body() dto: CreateGameDto) {
-    const { picture, video } = files;
-    return this.gameService.create(dto, picture[0], video[0]);
+  create(@Body() dto: CreateGameDto) {
+    return this.gameService.create(dto);
   }
 
   @Get()

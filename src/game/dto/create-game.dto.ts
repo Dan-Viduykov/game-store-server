@@ -8,4 +8,6 @@ export class CreateGameDto {
   private description;
   private rating;
   private tags;
+  private picture;
+  private video;
 }
