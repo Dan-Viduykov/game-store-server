@@ -1,3 +1,4 @@
+import { UpdateGameDto } from './dto/udpate-game.dto';
 import {
   Body,
   Controller,
@@ -47,19 +48,8 @@ export class GameController {
     return this.gameService.addComment(dto);
   }
 
-  // @Put(':id')
-  // @UseInterceptors(
-  //   FileFieldsInterceptor([
-  //     { name: 'picture', maxCount: 1 },
-  //     { name: 'video', maxCount: 1 },
-  //   ]),
-  // )
-  // update(
-  //   @UploadedFiles() files,
-  //   @Body() dto: UpdateGameDto,
-  //   @Param('id') id: ObjectId,
-  // ) {
-  //   const { picture, video } = files;
-  //   return this.gameService.udate(id, dto, picture[0], video[0]);
-  // }
+  @Put(':id')
+  update(@Body() dto: UpdateGameDto, @Param('id') id: ObjectId) {
+    return this.gameService.update(id, dto);
+  }
 }

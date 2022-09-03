@@ -1,3 +1,4 @@
+import { UpdateGameDto } from './dto/udpate-game.dto';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
@@ -48,16 +49,10 @@ export class GameService {
     return comment;
   }
 
-  // async udate(id: ObjectId, dto: UpdateGameDto, picture, video): Promise<Game> {
-  //   const game = await this.gameModel.findById(id);
-  //   const videoPath = this.fileService.createFile(FileType.VIDEO, video);
-  //   const picturePath = this.fileService.createFile(FileType.IMAGE, picture);
-  //   const updateGame = await this.gameModel.findByIdAndUpdate(id, {
-  //     ...game,
-  //     ...dto,
-  //     video: videoPath,
-  //     picture: picturePath,
-  //   });
-  //   return updateGame;
-  // }
+  async update(id: ObjectId, dto: UpdateGameDto): Promise<Game> {
+    const updateGame = await this.gameModel.findByIdAndUpdate(id, {
+      ...dto,
+    });
+    return await updateGame.save();
+  }
 }
