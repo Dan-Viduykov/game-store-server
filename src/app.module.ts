@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GameModule } from './game/game.module';
 import { BasketModule } from './basket/basket.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import * as path from 'path';
 
 @Module({
   imports: [
